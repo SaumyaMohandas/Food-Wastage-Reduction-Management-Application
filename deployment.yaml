@@ -1,0 +1,20 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: food
+ spec:
+   replicas: 5
+   selector:
+     matchLabels:
+       app: food
+   template:
+     metadata:
+       labels:
+         app: food
+     spec:
+       containers:
+       - name: food
+         image: jp.icr.io/foodwastage/food1
+         imagePullPolicy: Always
+         ports:
+         - containerPort: 5000
